@@ -39,6 +39,16 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.35, )"
+            },
+            "Microsoft.Extensions.Identity.Core": {
+              "target": "Package",
+              "version": "[3.1.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -88,7 +88,11 @@ namespace BlogLab.Repository
 
                 newPhotoId = await connection.ExecuteScalarAsync<int>(
                     "Photo_Insert",
-                    new { PhotoId = dataTable.AsTableValuedParameter("dbo.PhotoType")},
+                    new
+                    {
+                        PhotoId = dataTable.AsTableValuedParameter("dbo.PhotoType"),
+                        ApplicationUserId = applicationUserId
+                    },
                     commandType: CommandType.StoredProcedure);
 
             }

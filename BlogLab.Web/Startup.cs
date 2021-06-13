@@ -23,8 +23,7 @@ namespace BlogLab.Web
     {
         public IConfiguration Configuration { get; }
 
-
-        public Startup(IConfiguration config, ITokenService service)
+        public Startup(IConfiguration config)
         {
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
             Configuration = config;
@@ -72,6 +71,7 @@ namespace BlogLab.Web
                             ValidateLifetime = true,
                             ValidateIssuerSigningKey = true,
                             ValidIssuer = Configuration["Jwt:Issuer"],
+                            ValidAudience = Configuration["Jwt:Issuer"],
                             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])),
                             ClockSkew = TimeSpan.Zero
                         };
